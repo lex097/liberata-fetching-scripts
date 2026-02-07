@@ -49,15 +49,15 @@ def initialize_supabase_client(
         supabase = None
         raise
 
-def getFullText(db: Client, id):
-    response = db.table('manuscripts').select('*').eq('id', id).single().execute()
-    return response
+def getMetaData(db: Client, id):
+    response = db.table('manuscripts').select('title, abstract').eq('id', id).single().execute()
+    return response.data
 
 
 
 def main():
     db = initialize_supabase_client()
-    print(getFullText(db, '000776d4-5f16-4213-a54e-8329ceb88872'))
+    print(getMetaData(db, '000a71e9-7d71-4353-847d-3600ebdf8b18')) #takes in ID -> returns 
 
 
 
