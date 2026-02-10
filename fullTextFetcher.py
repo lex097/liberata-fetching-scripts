@@ -51,13 +51,17 @@ def initialize_supabase_client(
 
 def getMetaData(db: Client, id):
     response = db.table('manuscripts').select('title, abstract').eq('id', id).single().execute()
+    folder = "data"
+    filename = os.path.join(folder, "output.json")
+    os.makedirs(folder, exist_ok=True)
+    
+    with open(filename, "w") as f:
+        json.dump(response.data, f, indent = 2)
     return response.data
-
-
 
 def main():
     db = initialize_supabase_client()
-    print(getMetaData(db, '000a71e9-7d71-4353-847d-3600ebdf8b18')) #takes in ID -> returns 
+    print(getMetaData(db, '000a71e9-7d71-4353-847d-3600ebdf8b18')) #takes in ID -> returns metadata
 
 
 
