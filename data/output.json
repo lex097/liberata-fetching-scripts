@@ -1,4 +1,21 @@
 {
-  "title": "PROBABLE CASE OF THIRD GENERATION SYPHILIS",
-  "abstract": "Although third generation syphilis is exceedingly rare, there is sufficient evidence in the literature to show that it does occur. There are, however, a number of syphilologists of long experience who are skeptical of its occurrence. They have stated the belief that the majority of cases reported do not fulfil all the criteria first proposed by Fournier and Finger. Stokes, 1 who expressed the belief that most of the cases that have appeared in the literature were not beyond criticism, quoted these criteria as follows: (1) Acquired syphilis must be demonstrated in the grandmother and preferably also the grandfather. (2) Prenatal as distinguished from acquired syphilis must be demonstrated in the mother of the third generation case. Acquired syphilis must be excluded in her case and the father must be proved to be healthy. (3) There must be incontestable evidence of prenatal syphilis in the third generation; and"
+  "title": "Stop-flow analysis in man",
+  "abstract": null,
+  "topics": [
+    {
+      "id": "https://openalex.org/T12840",
+      "score": 0.9692000150680542,
+      "display_name": "Renal function and acid-base balance"
+    },
+    {
+      "id": "https://openalex.org/T11967",
+      "score": 0.9275000095367432,
+      "display_name": "Electrolyte and hormonal disorders"
+    },
+    {
+      "id": "https://openalex.org/T10724",
+      "score": 0.9271000027656555,
+      "display_name": "Ion Transport and Channel Regulation"
+    }
+  ]
 }
