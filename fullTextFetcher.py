@@ -49,19 +49,30 @@ def initialize_supabase_client(
         supabase = None
         raise
 
-def getMetaData(db: Client, id):
-    response = db.table('manuscripts').select('title, abstract, topics').eq('id', id).single().execute()
+def getMetaData(db: Client, id: [str]):
+    training_data = {"training_data" : []}
+    for i in id:       
+        response = db.table('manuscripts').select('title, abstract, topics').eq('id', i).single().execute()
+        training_data["training_data"].append(response.data)
     folder = "data"
-    filename = os.path.join(folder, "output.json")
+    filename = os.path.join(folder, "training_data.json")
     os.makedirs(folder, exist_ok=True)
     
     with open(filename, "w") as f:
-        json.dump(response.data, f, indent = 2)
-    return response.data
+        json.dump(training_data, f, indent = 2)
+    return training_data
+
+def getIDs(db: Client) -> [str]:
+
+    IDs = db.table('manuscripts').select('id').limit(10).execute()
+    rows = IDs.data
+    IDs = [row['id'] for row in rows]
+    return IDs
 
 def main():
     db = initialize_supabase_client()
-    print(getMetaData(db, '000776d4-5f16-4213-a54e-8329ceb88872')) #takes in ID -> returns metadata
+    IDs = getIDs(db)
+    print(getMetaData(db, IDs)) #takes in ID -> returns metadata
 
 
 
